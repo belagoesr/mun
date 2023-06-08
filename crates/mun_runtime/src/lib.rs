@@ -27,6 +27,7 @@ use mun_memory::{
 use mun_project::LOCKFILE_NAME;
 use notify::{event::ModifyKind, Event, EventKind, RecommendedWatcher, RecursiveMode, Watcher};
 use std::{
+    cell::UnsafeCell,
     cmp,
     collections::{BTreeMap, HashMap, VecDeque},
     ffi,
@@ -695,15 +696,16 @@ impl<'name, T: InvokeArgs> InvokeErr<'name, T> {
         Output: 'o + ReturnTypeReflection + Marshal<'o>,
         'r: 'o,
     {
-        #[allow(clippy::cast_ref_to_mut)]
-        let runtime = &mut *(runtime as *const Runtime as *mut Runtime);
+        let runtime = UnsafeCell::new(runtime as *const Runtime as *mut Runtime);
+        let runtime_ptr = *runtime.get();
+        let runtime_mut = &mut *runtime_ptr;
 
         eprintln!("{}", self.msg);
-        while !runtime.update() {
+        while !runtime_mut.update() {
             // Wait until there has been an update that might fix the error
         }
 
-        runtime.invoke(self.function_name, self.arguments)
+        runtime_mut.invoke(self.function_name, self.arguments)
     }
 }
 
