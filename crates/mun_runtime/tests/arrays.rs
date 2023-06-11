@@ -3,6 +3,7 @@ use mun_runtime::{ArrayRef, StructRef};
 use mun_test::CompileAndRunTestDriver;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arrays() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -20,6 +21,7 @@ fn arrays() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn array_of_structs() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -47,6 +49,7 @@ fn array_of_structs() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arrays_as_argument() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -83,6 +86,7 @@ fn arrays_as_argument() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn root_array() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -104,6 +108,7 @@ fn root_array() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn construct_array_simple() {
     let driver =
         CompileAndRunTestDriver::new(r"", |builder| builder).expect("Failed to build test driver");

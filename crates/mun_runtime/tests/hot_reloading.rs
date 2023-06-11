@@ -5,6 +5,7 @@ use mun_runtime::StructRef;
 use mun_test::CompileAndRunTestDriver;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn reloadable_function_single_file() {
     let mut driver = CompileAndRunTestDriver::new(
         r"
@@ -25,6 +26,7 @@ fn reloadable_function_single_file() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn reloadable_function_multi_file() {
     let mut driver = CompileAndRunTestDriver::from_fixture(
         r#"
@@ -55,6 +57,7 @@ fn reloadable_function_multi_file() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn reloadable_struct_decl_single_file() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -108,6 +111,7 @@ fn reloadable_struct_decl_single_file() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn reloadable_struct_decl_multi_file() {
     let mut driver = CompileAndRunTestDriver::from_fixture(
         r#"

@@ -6,6 +6,7 @@ use mun_test::CompileAndRunTestDriver;
 mod util;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn compile_and_run() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -19,6 +20,7 @@ fn compile_and_run() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn return_value() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -32,6 +34,7 @@ fn return_value() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arguments() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -47,6 +50,7 @@ fn arguments() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn dispatch_table() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -67,6 +71,7 @@ fn dispatch_table() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn booleans() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -114,6 +119,7 @@ fn booleans() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn fibonacci() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -135,6 +141,7 @@ fn fibonacci() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn fibonacci_loop() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -164,6 +171,7 @@ fn fibonacci_loop() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn fibonacci_loop_break() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -193,6 +201,7 @@ fn fibonacci_loop_break() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn fibonacci_while() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -220,6 +229,7 @@ fn fibonacci_while() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn true_is_true() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -299,6 +309,7 @@ fn true_is_true() {
 // }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn fields() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -319,6 +330,7 @@ fn fields() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn field_crash() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -337,6 +349,7 @@ fn field_crash() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn marshal_struct() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -554,6 +567,7 @@ fn marshal_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn extern_fn() {
     extern "C" fn add_int(a: i32, b: i32) -> i32 {
         dbg!("add_int is called!");
@@ -576,6 +590,7 @@ fn extern_fn() {
 
 #[test]
 #[should_panic]
+#[cfg_attr(miri, ignore)]
 fn extern_fn_missing() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -590,6 +605,7 @@ fn extern_fn_missing() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn extern_fn_invalid_signature() {
     extern "C" fn add_int() -> i32 {
         0
@@ -608,6 +624,7 @@ fn extern_fn_invalid_signature() {
 
 #[test]
 #[should_panic]
+#[cfg_attr(miri, ignore)]
 fn extern_fn_invalid_sig() {
     extern "C" fn add_int(_a: i8, _b: isize) -> isize {
         3
@@ -626,6 +643,7 @@ fn extern_fn_invalid_sig() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn test_primitive_types() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -699,6 +717,7 @@ fn test_primitive_types() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn can_add_external_without_return() {
     extern "C" fn foo(a: i32) {
         println!("{a}");
@@ -717,6 +736,7 @@ fn can_add_external_without_return() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn signed_and_unsigned_rem() {
     let driver = CompileAndRunTestDriver::new(
         r#"

@@ -5,6 +5,7 @@ use mun_test::CompileAndRunTestDriver;
 mod util;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn gc_trace() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -44,6 +45,7 @@ fn gc_trace() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_insert_field1() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -83,6 +85,7 @@ fn map_struct_insert_field1() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_insert_field2() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -129,6 +132,7 @@ fn map_struct_insert_field2() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_insert_field3() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -175,6 +179,7 @@ fn map_struct_insert_field3() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_remove_field1() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -213,6 +218,7 @@ fn map_struct_remove_field1() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_remove_field2() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -254,6 +260,7 @@ fn map_struct_remove_field2() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_remove_field3() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -292,6 +299,7 @@ fn map_struct_remove_field3() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_cast_fields1() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -354,6 +362,7 @@ fn map_struct_cast_fields1() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_cast_fields2() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -389,6 +398,7 @@ fn map_struct_cast_fields2() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_swap_fields1() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -437,6 +447,7 @@ fn map_struct_swap_fields1() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_swap_fields2() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -492,6 +503,7 @@ fn map_struct_swap_fields2() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_rename_field1() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -540,6 +552,7 @@ fn map_struct_rename_field1() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_rename_field2() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -588,6 +601,7 @@ fn map_struct_rename_field2() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_all() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -644,6 +658,7 @@ fn map_struct_all() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_array_to_primitive_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -703,6 +718,7 @@ fn map_array_to_array_different_array_to_primitive_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_array_to_primitive_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -762,6 +778,7 @@ fn map_array_to_array_different_array_to_primitive_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_array_to_struct_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -836,6 +853,7 @@ fn map_array_to_array_different_array_to_struct_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_array_to_struct_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -910,6 +928,7 @@ fn map_array_to_array_different_array_to_struct_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_primitive_to_array_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -973,6 +992,7 @@ fn map_array_to_array_different_primitive_to_array_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_primitive_to_array_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1033,6 +1053,7 @@ fn map_array_to_array_different_primitive_to_array_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_primitive_to_primitive() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1092,6 +1113,7 @@ fn map_array_to_array_different_primitive_to_primitive() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_primitive_to_struct() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1155,6 +1177,7 @@ fn map_array_to_array_different_primitive_to_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_struct_to_array_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1238,6 +1261,7 @@ fn map_array_to_array_different_struct_to_array_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_struct_to_array_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1321,6 +1345,7 @@ fn map_array_to_array_different_struct_to_array_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_different_struct_to_struct() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1397,6 +1422,7 @@ fn map_array_to_array_different_struct_to_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_same_primitive() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1450,6 +1476,7 @@ fn map_array_to_array_same_primitive() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_array_same_struct() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1515,6 +1542,7 @@ fn map_array_to_array_same_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_primitive_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1565,6 +1593,7 @@ fn map_array_to_primitive_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_primitive_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1615,6 +1644,7 @@ fn map_array_to_primitive_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_struct_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1683,6 +1713,7 @@ fn map_array_to_struct_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_array_to_struct_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1751,6 +1782,7 @@ fn map_array_to_struct_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_primitive_to_array_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1815,6 +1847,7 @@ fn map_primitive_to_array_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_primitive_to_array_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1885,6 +1918,7 @@ fn map_primitive_to_array_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_to_array_same() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -1950,6 +1984,7 @@ fn map_struct_to_array_same() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn map_struct_to_array_different() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -2015,6 +2050,7 @@ fn map_struct_to_array_different() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn insert_array() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -2061,6 +2097,7 @@ fn insert_array() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn delete_used_struct() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -2112,6 +2149,7 @@ fn delete_used_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn nested_structs() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -2410,6 +2448,7 @@ fn nested_structs() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn insert_struct() {
     let mut driver = CompileAndRunTestDriver::new(
         r#"
@@ -2469,6 +2508,7 @@ fn insert_struct() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn test_type_table() {
     let driver = CompileAndRunTestDriver::from_fixture(
         r#"

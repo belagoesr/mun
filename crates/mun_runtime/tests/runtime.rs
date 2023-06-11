@@ -5,6 +5,7 @@ use mun_test::CompileAndRunTestDriver;
 mod util;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn invoke() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -19,6 +20,7 @@ fn invoke() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arrays_are_collected() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -40,6 +42,7 @@ fn arrays_are_collected() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arrays() {
     let driver = CompileAndRunTestDriver::new(
         r#"
@@ -90,6 +93,7 @@ fn arrays() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn multiple_modules() {
     let driver = CompileAndRunTestDriver::from_fixture(
         r#"
@@ -112,6 +116,7 @@ fn multiple_modules() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn cyclic_modules() {
     let driver = CompileAndRunTestDriver::from_fixture(
         r#"
@@ -136,6 +141,7 @@ fn cyclic_modules() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn from_fixture() {
     let driver = CompileAndRunTestDriver::from_fixture(
         r#"
@@ -154,6 +160,7 @@ fn from_fixture() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn error_assembly_not_linkable() {
     const EXPECTED_FN_NAME: &str = "dependency";
 
@@ -177,6 +184,7 @@ fn error_assembly_not_linkable() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn arg_missing_bug() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -202,6 +210,7 @@ fn arg_missing_bug() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn cyclic_struct() {
     let driver = CompileAndRunTestDriver::new(
         r"

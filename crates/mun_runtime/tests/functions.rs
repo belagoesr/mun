@@ -4,6 +4,7 @@ mod util;
 use mun_test::CompileAndRunTestDriver;
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn unknown_function() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -28,6 +29,7 @@ fn unknown_function() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn exact_case_sensitive_match_exists_function() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -54,6 +56,7 @@ fn exact_case_sensitive_match_exists_function() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn close_match_exists_function() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -80,6 +83,7 @@ fn close_match_exists_function() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn no_close_match_exists_function() {
     let driver = CompileAndRunTestDriver::new(
         r"
@@ -105,6 +109,7 @@ fn no_close_match_exists_function() {
 }
 
 #[test]
+#[cfg_attr(miri, ignore)]
 fn multiple_match_exists_function() {
     let driver = CompileAndRunTestDriver::new(
         r"
